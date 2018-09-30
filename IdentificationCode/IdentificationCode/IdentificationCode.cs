@@ -3,12 +3,12 @@
 namespace IdentificationCode
 {
     /// <summary>
-    /// Identification Code 585 standard based methods
+    /// Identification Code method
     /// </summary>
     public static class IdentificationCode
     {
         /// <summary>
-        /// Is valid 585 standard identificationCode
+        /// Is valid identificationCode
         /// </summary>
         public static bool IsValid(string identificationCode)
         {
@@ -47,11 +47,7 @@ namespace IdentificationCode
             var birthDay = int.Parse(identificationCode.Substring(5, 2));
 
             var birthDateAsString = $"{century + birthYear}-{birthMonth}-{birthDay}";
-            if (!DateTime.TryParse(birthDateAsString, out var birthDate))
-            {
-                return null;
-            }
-            return birthDate;
+            return DateTime.Parse(birthDateAsString);
         }
 
         /// <summary>

@@ -42,10 +42,10 @@ namespace IdentificationCode
         /// <returns>Century as a number</returns>
         internal static short GetCentury(char centuryDigit)
         {
-            if (centuryDigit < '0' || centuryDigit > '9')
-                throw new InvalidOperationException("Number must be between 0 and 9");
+            if (centuryDigit < '1' || centuryDigit > '8')
+                throw new InvalidOperationException("Number must be between 1 and 8");
 
-            return GetCentury(byte.Parse(centuryDigit.ToString()));
+            return GetCentury((byte) char.GetNumericValue(centuryDigit));
         }
 
         /// <summary>
@@ -90,40 +90,42 @@ namespace IdentificationCode
             }
         }
 
+        /// <summary>
+        /// Calculated identification code controll number. 
+        /// In some rare, special cases it needs to be recalculated 
+        /// </summary>
+        /// <param name="identificationCode">Identification code to work on</param>
+        /// <returns>Controll number value</returns>
         internal static int CalculateControllNumber(string identificationCode)
         {
             if (string.IsNullOrWhiteSpace(identificationCode) || identificationCode.Length > 11 || identificationCode.Length < 10 || !IsDigitsOnly(identificationCode))
                 throw new InvalidOperationException("Cannot caluclate checksum from invalid string.");
 
-            var identificationCodeWithoutChecksum = identificationCode.Length == 11
-                ? identificationCode
-                : identificationCode.Substring(0, 10);
-
-            var checkSum = short.Parse(identificationCodeWithoutChecksum[0].ToString()) * 1
-                   + short.Parse(identificationCodeWithoutChecksum[1].ToString()) * 2
-                   + short.Parse(identificationCodeWithoutChecksum[2].ToString()) * 3
-                   + short.Parse(identificationCodeWithoutChecksum[3].ToString()) * 4
-                   + short.Parse(identificationCodeWithoutChecksum[4].ToString()) * 5
-                   + short.Parse(identificationCodeWithoutChecksum[5].ToString()) * 6
-                   + short.Parse(identificationCodeWithoutChecksum[6].ToString()) * 7
-                   + short.Parse(identificationCodeWithoutChecksum[7].ToString()) * 8
-                   + short.Parse(identificationCodeWithoutChecksum[8].ToString()) * 9
-                   + short.Parse(identificationCodeWithoutChecksum[9].ToString()) * 1;
+            var checkSum = short.Parse(identificationCode[0].ToString()) * 1
+                   + short.Parse(identificationCode[1].ToString()) * 2
+                   + short.Parse(identificationCode[2].ToString()) * 3
+                   + short.Parse(identificationCode[3].ToString()) * 4
+                   + short.Parse(identificationCode[4].ToString()) * 5
+                   + short.Parse(identificationCode[5].ToString()) * 6
+                   + short.Parse(identificationCode[6].ToString()) * 7
+                   + short.Parse(identificationCode[7].ToString()) * 8
+                   + short.Parse(identificationCode[8].ToString()) * 9
+                   + short.Parse(identificationCode[9].ToString()) * 1;
 
             var controllNumber = checkSum % 11;
 
             if (controllNumber == 10)
             {
-                checkSum = short.Parse(identificationCodeWithoutChecksum[0].ToString()) * 3
-                           + short.Parse(identificationCodeWithoutChecksum[1].ToString()) * 4
-                           + short.Parse(identificationCodeWithoutChecksum[2].ToString()) * 5
-                           + short.Parse(identificationCodeWithoutChecksum[3].ToString()) * 6
-                           + short.Parse(identificationCodeWithoutChecksum[4].ToString()) * 7
-                           + short.Parse(identificationCodeWithoutChecksum[5].ToString()) * 8
-                           + short.Parse(identificationCodeWithoutChecksum[6].ToString()) * 9
-                           + short.Parse(identificationCodeWithoutChecksum[7].ToString()) * 1
-                           + short.Parse(identificationCodeWithoutChecksum[8].ToString()) * 2
-                           + short.Parse(identificationCodeWithoutChecksum[9].ToString()) * 3;
+                checkSum = short.Parse(identificationCode[0].ToString()) * 3
+                           + short.Parse(identificationCode[1].ToString()) * 4
+                           + short.Parse(identificationCode[2].ToString()) * 5
+                           + short.Parse(identificationCode[3].ToString()) * 6
+                           + short.Parse(identificationCode[4].ToString()) * 7
+                           + short.Parse(identificationCode[5].ToString()) * 8
+                           + short.Parse(identificationCode[6].ToString()) * 9
+                           + short.Parse(identificationCode[7].ToString()) * 1
+                           + short.Parse(identificationCode[8].ToString()) * 2
+                           + short.Parse(identificationCode[9].ToString()) * 3;
 
                 controllNumber = checkSum % 11;
                 controllNumber = controllNumber % 10;
