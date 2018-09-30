@@ -1,14 +1,14 @@
 ﻿using System;
 
-namespace IdentificationCode585
+namespace IdentificationCode
 {
     /// <summary>
-    /// Estonian IdentificationCode functions
+    /// Identification Code 585 standard based methods
     /// </summary>
-    public static class IdentificationCode585
+    public static class IdentificationCode
     {
         /// <summary>
-        /// Is valid identificationCode
+        /// Is valid 585 standard identificationCode
         /// </summary>
         public static bool IsValid(string identificationCode)
         {

@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace IdentificationCode585.Tests
+namespace IdentificationCode.Tests
 {
     public class ValidatorsTests
     {

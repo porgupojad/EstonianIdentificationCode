@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\IdentificationCode585\IdentificationCode585.csproj" />
+    <ProjectReference Include="..\IdentificationCode\IdentificationCode.csproj" />
   </ItemGroup>
 
 </Project>

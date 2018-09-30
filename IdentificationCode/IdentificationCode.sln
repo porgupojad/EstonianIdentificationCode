@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentificationCode585", "IdentificationCode585\IdentificationCode585.csproj", "{6E4C73F7-0F4E-429A-9DF2-DFEAC5015D3A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentificationCode", "IdentificationCode\IdentificationCode.csproj", "{6E4C73F7-0F4E-429A-9DF2-DFEAC5015D3A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentificationCode.Tests", "IdentificationCode.Tests\IdentificationCode.Tests.csproj", "{2113E540-093C-49C8-878B-54FD34B1759A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentificationCode.Tests", "IdentificationCode.Tests\IdentificationCode.Tests.csproj", "{2113E540-093C-49C8-878B-54FD34B1759A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

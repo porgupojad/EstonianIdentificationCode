@@ -1,6 +1,6 @@
-﻿namespace IdentificationCode.Tests.IdentificationCode585
+﻿namespace IdentificationCode.Tests
 {
-    public class TestingHelper585
+    public class TestingHelper
     {
         /// <summary>
         /// Some hardcoded valid IdentificationCodes.

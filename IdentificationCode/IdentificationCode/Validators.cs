@@ -2,7 +2,7 @@
 using System.Runtime.CompilerServices;
 [assembly: InternalsVisibleTo("IdentificationCode.Tests")]
 
-namespace IdentificationCode585
+namespace IdentificationCode
 {
     /// <summary>
     /// Custom validators for Estonian Identification code
