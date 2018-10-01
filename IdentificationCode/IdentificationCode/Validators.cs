@@ -36,7 +36,6 @@ namespace IdentificationCode
         /// 3 and 4 = 1900;
         /// 5 and 6 = 2000;
         /// 7 and 8 = 2100;
-        /// 9 and 0 = 2200; 
         /// </remarks>
         /// <param name="centuryDigit">Century as a number character</param>
         /// <returns>Century as a number</returns>
@@ -57,7 +56,6 @@ namespace IdentificationCode
         /// 3 and 4 = 1900;
         /// 5 and 6 = 2000;
         /// 7 and 8 = 2100;
-        /// 9 and 0 = 2200; 
         /// </remarks>
         /// <param name="centuryDigit">Century as a digit</param>
         /// <returns>Century number</returns>
